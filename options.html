@@ -42,13 +42,18 @@
         cursor: pointer;
       }
 
-      #saveOptions {
+      #saveOptions,
+      #addLink {
         background-color: green;
         color: white;
         margin-top: 10px;
       }
-      #saveOptions:hover {
+      #saveOptions:hover,
+      #addLink:hover {
         background-color: darkgreen;
+      }
+      #newLinkClass {
+        width: 25%;
       }
     </style>
   </head>
@@ -72,6 +77,13 @@
     <div class="input-group">
       <label for="newLink">Add Link:</label>
       <input type="url" id="newLink" placeholder="Enter a URL" />
+      <br />
+      <br />
+      <input
+        type="text"
+        id="newLinkClass"
+        placeholder="Enter class name (optional)"
+      />
     </div>
     <button id="addLink">Add Link</button>
 
@@ -82,6 +94,7 @@
           <tr>
             <th>Sr no.</th>
             <th>Link</th>
+            <th>Class Name</th>
             <th>Action</th>
           </tr>
         </thead>
