@@ -1,23 +1,4 @@
 let currentTabIndex = 0;
-let activeTabId = null; // To store the ID of the currently active tab
-
-chrome.tabs.onActivated.addListener((activeInfo) => {
-  const newActiveTabId = activeInfo.tabId;
-
-  // Stop scrolling in the previous tab if there is one
-  if (activeTabId !== null && activeTabId !== newActiveTabId) {
-    chrome.tabs.sendMessage(activeTabId, { action: "stopScrolling" });
-  }
-
-  // Update the active tab ID
-  activeTabId = newActiveTabId;
-
-  // Start scrolling in the new active tab
-  chrome.tabs.sendMessage(newActiveTabId, {
-    action: "scrollFrame",
-    className: ".your-frame-class",
-  });
-});
 
 function switchToTabIndex(tabIndex) {
   // Get the links array from chrome.storage.sync
